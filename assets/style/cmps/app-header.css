@@ -1,6 +1,10 @@
 .app-header {
   background-color: var(--clr1);
-  color: var(--clr1bg);
+  color: var(--gray1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.6rem;
 }
 
 .app-nav {

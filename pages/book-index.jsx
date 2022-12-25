@@ -28,8 +28,8 @@ export function BookIndex() {
     }
 
     return (
-        <section className="book-index main-layout">
-            {!selectedBook && <div>
+        <section className="book-index">
+            {!selectedBook && <div className="main-layout">
                 <h2>Books Index</h2>
                 <BookFilter onSetFilter={onSetFilter} />
                 <BookList books={books} onSelectBook={onSelectBook} />

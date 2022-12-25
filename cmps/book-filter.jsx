@@ -27,7 +27,7 @@ export function BookFilter({ onSetFilter }) {
     // }
 
 
-    return <section className="book-filter full">
+    return <section className="book-filter full main-layout">
         <h2>Filter our books</h2>
         <form>
             <label htmlFor="title">title:</label>
