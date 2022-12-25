@@ -6,7 +6,7 @@ import { BookIndex } from './pages/book-index.jsx'
 
 export function App() {
 
-    const [page, setPage] = useState('home')
+    const [page, setPage] = useState('book')
     console.log('page is', page)
 
     return <section className="app">

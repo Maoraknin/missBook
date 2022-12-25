@@ -4,12 +4,9 @@ export const utilService = {
     getRandomIntInclusive,
     loadFromStorage,
     saveToStorage,
-    padNum,
-    getDayName,
-    getMonthName
 }
 
-function makeId(length = 6) {
+function makeId(length = 3) {
     var txt = ''
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
 
@@ -43,20 +40,4 @@ function saveToStorage(key, value) {
 function loadFromStorage(key) {
     const data = localStorage.getItem(key)
     return (data) ? JSON.parse(data) : undefined
-}
-
-function padNum(num) {
-    return (num > 9) ? num + '' : '0' + num
-}
-
-function getDayName(date, locale) {
-    date = new Date(date)
-    return date.toLocaleDateString(locale, { weekday: 'long' })
-}
-
-function getMonthName(date) {
-    const monthNames = ['January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'
-    ]
-    return monthNames[date.getMonth()]
 }
