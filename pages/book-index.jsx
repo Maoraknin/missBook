@@ -28,7 +28,7 @@ export function BookIndex() {
     }
 
     return (
-        <section className="car-index ">
+        <section className="book-index main-layout">
             {!selectedBook && <div>
                 <h2>Books Index</h2>
                 <BookFilter onSetFilter={onSetFilter} />

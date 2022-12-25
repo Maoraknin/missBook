@@ -11,15 +11,23 @@ export function BookFilter({ onSetFilter }) {
     }, [filterByToEdit])
 
     function handleChange({ target }) {
-        let { value, name: field, type } = target
+        let { value, name: field, type, checked } = target
         value = (type === 'number') ? +value : value
         setFilterByToEdit((prevFilter) => {
+            if (type === 'checkbox') {
+                console.log('checked:', checked)
+                return { ...prevFilter, [field]: checked }
+            }
             return { ...prevFilter, [field]: value }
         })
     }
 
+    // function setSaleFilter({target}){
+    //     console.log('ev:',ev)
+    // }
 
-    return <section className="car-filter">
+
+    return <section className="book-filter full">
         <h2>Filter our books</h2>
         <form>
             <label htmlFor="title">title:</label>
@@ -31,12 +39,28 @@ export function BookFilter({ onSetFilter }) {
                 onChange={handleChange}
             />
 
+            <label htmlFor="authors">Authors:</label>
+            <input type="text"
+                id="authors"
+                name="authors"
+                placeholder="By authors"
+                value={filterByToEdit.authors}
+                onChange={handleChange}
+            />
+
             <label htmlFor="minPrice">Min price:</label>
             <input type="number"
                 id="minPrice"
                 name="minPrice"
                 placeholder="By min-price"
                 value={filterByToEdit.minPrice}
+                onChange={handleChange}
+            />
+
+            <label htmlFor="isSale">On SALE</label>
+            <input type="checkbox"
+                id="isSale"
+                name="isSale"
                 onChange={handleChange}
             />
 

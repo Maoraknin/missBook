@@ -5,7 +5,7 @@ export function BookList({books, onSelectBook}) {
     console.log('books:',books)
     return (
         <section>
-            <ul className="car-list">
+            <ul className="book-list">
                 {
                     books.map(book => <li key={book.id}>
                         <BookPreview book={book} />

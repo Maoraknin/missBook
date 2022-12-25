@@ -20,9 +20,17 @@ function query(filterBy) {
                 const regex = new RegExp(filterBy.title, 'i')
                 books = books.filter(book => regex.test(book.title))
             }
+            if (filterBy.authors) {
+              const regex = new RegExp(filterBy.authors, 'i')
+              books = books.filter(book => book.authors.some(author => regex.test(author)))
+          }
+
             if (filterBy.minPrice) {
                 books = books.filter(book => book.listPrice.amount >= filterBy.minPrice)
             }
+            if (filterBy.isSale) {
+                  books = books.filter(book => book.listPrice.isOnSale === filterBy.isSale)
+              } 
             return books
         })
 }
