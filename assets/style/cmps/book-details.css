@@ -9,11 +9,28 @@
     font-size: 2em;
     
 }
+
+.details-img{
+    flex-grow: 1;
+    /* margin: 0; */
+}
+
+.book-info-container{
+    flex-grow: 1;
+}
+
+.details-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 20px;
+}
+
 .book-details h5 {
     color: var(--clr2);
 }
 .book-details img {
     max-width: 200px;
     display: block;
-    margin: auto;
+    /* margin: auto; */
 }

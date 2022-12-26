@@ -33,7 +33,7 @@ export function AddBook() {
             navigate('/book')
             showSuccessMsg('Book Added')
         }).catch((err) => {
-            console.log('Had issues removing', err)
+            console.log('Had issues adding', err)
             showErrorMsg('Could not add book, try again please!')
         })
         

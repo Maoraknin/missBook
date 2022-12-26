@@ -11,6 +11,7 @@ export const bookService = {
   save,
   getEmptyBook,
   getDefaultFilter,
+  addReview
 }
 
 function query(filterBy) {
@@ -47,6 +48,14 @@ function save(book) {
   if (book.id) return storageService.put(BOOK_KEY, book)
   else return storageService.post(BOOK_KEY, book)
 }
+
+function addReview(bookId, review) {
+  return get(bookId).then((book) => {
+    book.reviews ? book.reviews.push(review) : book.reviews = [review]
+    return save(book)
+  })
+}
+
 
 function getEmptyBook(title = '',subtitle='',authors=[], publishedDate='',
                       description='', pageCount='', categories=[],
