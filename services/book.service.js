@@ -75,7 +75,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/20.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 109,
                 currencyCode: "EUR",
@@ -97,7 +97,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/14.jpg",
-              language: "sp",
+              language: "Spanish",
               listPrice: {
                 amount: 44,
                 currencyCode: "EUR",
@@ -119,7 +119,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/2.jpg",
-              language: "he",
+              language: "Hebrew",
               listPrice: {
                 amount: 108,
                 currencyCode: "ILS",
@@ -141,7 +141,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/16.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 30,
                 currencyCode: "EUR",
@@ -163,7 +163,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/12.jpg",
-              language: "sp",
+              language: "Spanish",
               listPrice: {
                 amount: 19,
                 currencyCode: "USD",
@@ -185,7 +185,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/1.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 91,
                 currencyCode: "USD",
@@ -207,7 +207,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/14.jpg",
-              language: "he",
+              language: "Hebrew",
               listPrice: {
                 amount: 90,
                 currencyCode: "USD",
@@ -229,7 +229,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/11.jpg",
-              language: "he",
+              language: "Hebrew",
               listPrice: {
                 amount: 176,
                 currencyCode: "EUR",
@@ -251,7 +251,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/10.jpg",
-              language: "sp",
+              language: "Spanish",
               listPrice: {
                 amount: 116,
                 currencyCode: "USD",
@@ -273,7 +273,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/5.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 145,
                 currencyCode: "EUR",
@@ -295,7 +295,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/16.jpg",
-              language: "sp",
+              language: "Spanish",
               listPrice: {
                 amount: 157,
                 currencyCode: "ILS",
@@ -317,7 +317,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/17.jpg",
-              language: "sp",
+              language: "Spanish",
               listPrice: {
                 amount: 57,
                 currencyCode: "USD",
@@ -339,7 +339,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/8.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 167,
                 currencyCode: "ILS",
@@ -361,7 +361,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/3.jpg",
-              language: "he",
+              language: "Hebrew",
               listPrice: {
                 amount: 150,
                 currencyCode: "USD",
@@ -383,7 +383,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/6.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 58,
                 currencyCode: "ILS",
@@ -405,7 +405,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/7.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 78,
                 currencyCode: "USD",
@@ -427,7 +427,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/10.jpg",
-              language: "en",
+              language: "English",
               listPrice: {
                 amount: 118,
                 currencyCode: "ILS",
@@ -449,7 +449,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/12.jpg",
-              language: "he",
+              language: "Hebrew",
               listPrice: {
                 amount: 60,
                 currencyCode: "EUR",
@@ -471,7 +471,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/20.jpg",
-              language: "he",
+              language: "Hebrew",
               listPrice: {
                 amount: 110,
                 currencyCode: "USD",
@@ -493,7 +493,7 @@ function _createBooks() {
                 "Hack"
               ],
               thumbnail: "http://coding-academy.org/books-photos/2.jpg",
-              language: "sp",
+              language: "Spanish",
               listPrice: {
                 amount: 186,
                 currencyCode: "ILS",

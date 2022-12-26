@@ -5,15 +5,11 @@ export function BookPreview({book}) {
     
     return (
         <article className="book-preview">
-        <h2>{book.title}</h2>
-        <h3>{book.subtitle}</h3>
-        <p>Author: {book.authors.join(', ')}</p>
         <img src={book.thumbnail} />
-        <p>{bookUtils.getPublishedData(book.publishedDate)}</p>
-        <p>Categories: {book.categories.join(', ')}</p>
+        <h2 className="book-preview-title">{book.title}</h2>
+        <p>Author: {book.authors.join(', ')}</p>
         <p>{bookUtils.getReadingLvl(book.pageCount)}</p>
-        <p>Language: {book.language}</p>
-        <h3>Price: <span className={bookUtils.getPriceColor(book.listPrice.amount)}>{book.listPrice.amount + ' ' + book.listPrice.currencyCode}</span></h3>
+        <h3 className="book-preview-price"><span className={bookUtils.getPriceColor(book.listPrice.amount)}>{bookUtils.getPriceToDisplay(book.listPrice.amount, book.listPrice.currencyCode)}</span></h3>
     </article>
     )
 }

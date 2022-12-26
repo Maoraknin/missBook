@@ -29,40 +29,45 @@ export function BookFilter({ onSetFilter }) {
 
     return <section className="book-filter full main-layout">
         <h2>Filter our books</h2>
-        <form>
-            <label htmlFor="title">title:</label>
-            <input type="text"
-                id="title"
-                name="title"
-                placeholder="By title"
-                value={filterByToEdit.title}
-                onChange={handleChange}
-            />
-
-            <label htmlFor="authors">Authors:</label>
-            <input type="text"
-                id="authors"
-                name="authors"
-                placeholder="By authors"
-                value={filterByToEdit.authors}
-                onChange={handleChange}
-            />
-
-            <label htmlFor="minPrice">Min price:</label>
-            <input type="number"
-                id="minPrice"
-                name="minPrice"
-                placeholder="By min-price"
-                value={filterByToEdit.minPrice}
-                onChange={handleChange}
-            />
-
-            <label htmlFor="isSale">On SALE</label>
-            <input type="checkbox"
-                id="isSale"
-                name="isSale"
-                onChange={handleChange}
-            />
+        <form className="filter-form">
+            <div className="input-container">
+                <label htmlFor="title">title:</label>
+                <input type="text"
+                    id="title"
+                    name="title"
+                    placeholder="By title"
+                    value={filterByToEdit.title}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-container">
+                <label htmlFor="authors">Authors:</label>
+                <input type="text"
+                    id="authors"
+                    name="authors"
+                    placeholder="By authors"
+                    value={filterByToEdit.authors}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-container">
+                <label htmlFor="minPrice">Min price:</label>
+                <input type="number"
+                    id="minPrice"
+                    name="minPrice"
+                    placeholder="By min-price"
+                    value={filterByToEdit.minPrice}
+                    onChange={handleChange}
+                />
+            </div>
+            <div className="input-container">
+                <label htmlFor="isSale">On SALE</label>
+                <input type="checkbox"
+                    id="isSale"
+                    name="isSale"
+                    onChange={handleChange}
+                />
+            </div>
 
         </form>
 

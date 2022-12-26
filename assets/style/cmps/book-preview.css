@@ -12,7 +12,11 @@
 }
 
 .book-preview img {
-    max-width: 100px;
+    /* max-width: 100px; */
+}
+
+.book-preview-price{
+    font-size: 1.2rem;
 }
 
 .green{

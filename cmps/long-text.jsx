@@ -14,12 +14,8 @@ export function LongTxt({ text }) {
         console.log('isLong:', isLong)
     }, [isLong])
 
-    function setTextStatus(text) {
-        if (text.length > 100) {
-            console.log('isLong:', isLong)
-            setIsLong(true)
-            console.log('isLong:', isLong)
-        }
+    function setTextStatus(text, length = 100) {
+        if (text.length > length) setIsLong(true)
     }
 
     function getTextToShow(text) {
@@ -39,9 +35,9 @@ export function LongTxt({ text }) {
 
 
     return (
-        <p>{getTextToShow(text)}
+        <p>{getTextToShow(text)} 
             {isTextLong(text) && <a className="green" onClick={() => setIsLong(!isLong)} >
-                {isLong ? 'Continue Reading...' : 'Show less...'}</a>}
+                {isLong ? ' Continue Reading...' : ' Show less...'}</a>}
         </p>
     )
 }
