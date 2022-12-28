@@ -1,82 +1,90 @@
-const { useParams, useNavigate } = ReactRouterDOM
+const { useParams, useNavigate, Link } = ReactRouterDOM
 const { useState, useEffect } = React
 
-import { bookUtils } from '../services/book-utils.js'
+
 import { bookService } from '../services/book.service.js'
-import { LongTxt } from '../cmps/long-text.jsx';
 import { AddReview } from '../cmps/add-review.jsx';
+import { BookDetailsContainer } from '../cmps/book-details-container.jsx';
+import { ReviewList } from '../cmps/review-list.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
+
 
 export function BookDetails() {
     const [book, setBook] = useState(null)
+    const [nextBookId, setNextBookId] = useState(null)
+    const [prevBookId, setPrevBookId] = useState(null)
+    const { bookId } = useParams()
     const params = useParams()
     const navigate = useNavigate()
 
     useEffect(() => {
         loadBook()
-    }, [])
+    }, [bookId])
 
 
     function loadBook() {
-        console.log('book:', book)
         bookService.get(params.bookId)
             .then(setBook)
             .catch((err) => {
                 console.log('Had issues with car details', err)
                 navigate('/book')
             })
+
+        bookService.getNextBookId(params.bookId)
+            .then(setNextBookId)
+
+        bookService.getPrevBookId(params.bookId)
+            .then(setPrevBookId)
     }
 
     function onGoBack() {
         navigate('/book')
     }
 
-    function onRemoveReview(book, idx) {
-        console.log('book, idx:', book, idx)
+    function onRemoveReview(reviewId) {
+        const idx = book.reviews.findIndex(reviews => reviews.id === reviewId)
         book.reviews.splice(idx, 1)
-        bookService.save(book).then(() => {
-            showSuccessMsg('Book removed')
-            loadBook()
-        })
+        bookService.save(book)
+            .then(() => {
+                showSuccessMsg('Book removed')
+                setBook({ ...book })
+            })
             .catch((err) => {
                 console.log('Had issues removing', err)
                 showErrorMsg('Could not remove book, try again please!')
             })
     }
 
+    function saveReview(book, bookReview){
+        bookService.addReview(book.id, bookReview)
+        .then((updatedBook) => {
+            showSuccessMsg('Book review added')
+            setBook({ ...updatedBook })
+        }).catch((err) => {
+            console.log('Had issues adding review', err)
+            showErrorMsg('Could not add book review, try again please!')
+        })
+    }
+
+    
+
     if (!book) return <div>Loading...</div>
     return (
 
         <section className="book-details">
-            <div className="details-container">
-                <img src={book.thumbnail} className="details-img"/>
-                <div className="book-info-container">
-                    <h2>{book.title}</h2>
-                    <h3>{book.subtitle}</h3>
-                    <p>Author: {book.authors.join(', ')}</p>
-                    <p>{bookUtils.getPublishedData(book.publishedDate)}{book.publishedDate}</p>
-                    <LongTxt text={book.description} />
-                    <p>Categories: {book.categories.join(', ')}</p>
-                    <p>{bookUtils.getReadingLvl(book.pageCount)} ,{book.pageCount} pages</p>
-                    <p>Language: {book.language}</p>
-                    <h3>Price: <span className={bookUtils.getPriceColor(book.listPrice.amount)}>{bookUtils.getPriceToDisplay(book.listPrice.amount, book.listPrice.currencyCode)}</span></h3>
-                    {book.listPrice.isOnSale && <p className="green">ON SALE!</p>}
-                </div>
-            </div>
+            <BookDetailsContainer book={book} />
+
             <button onClick={onGoBack}>Go Back</button>
-            <AddReview bookId={book.id} loadBook={loadBook} />
-            {book.reviews &&
-                book.reviews.map((review, idx) => {
-                    return <div>
-                        <div>Full Name: {review.name}</div>
-                        <div>Rating: {review.rating}</div>
-                        <div>Read at: {review.date}</div>
-                        <button onClick={() => onRemoveReview(book, idx)}>Delete review</button>
-                    </div>
-                })
-            }
-            {!book.reviews && <div>No Reviews</div>}
+            <Link to={`/book/${nextBookId}`}>Next Book</Link>
+            <Link to={`/book/${prevBookId}`}>Previous Book</Link>
+            <AddReview book ={book} saveReview={saveReview} />
+            
+            {!book.reviews && <h4>No Reviews</h4>}
+            {book.reviews && <h4>{book.reviews.length} Reviews</h4>}
+            {book.reviews && <ReviewList book={book} onRemoveReview={onRemoveReview} />}
+
 
         </section>
     )
 }
+

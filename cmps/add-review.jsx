@@ -1,38 +1,36 @@
-
-import { StarRating } from '../cmps/star-rating.jsx';
 import { bookService } from '../services/book.service.js'
+import { StarRating } from '../cmps/star-rating.jsx';
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
+// import { bookService } from '../services/book.service.js'
+// import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js';
+// import { utilService } from '../services/util.service.js';
 
-export function AddReview({ bookId, loadBook }) {
+export function AddReview({book, saveReview}) {
 
-    function onReviewBook(ev) {
+    function onAddReview(ev) {
         ev.preventDefault()
         const { target } = ev
-        // let rating = 0
-        // target.star.map(star => {
-        //     console.log('star:',star)
-        // })
-        // console.log('target.star:',target.star)
         const name = target.fullname.value
-        const rating = target.rating.value
+        const rating = getStarRating()
         const date = target.readAt.value
-        const bookReview = { name: name, rating: rating, date: date }
-        bookService.addReview(bookId, bookReview).then(() => {
-            // console.log('book:',book)
-            // navigate('/book')
-            showSuccessMsg('Book review added')
-            loadBook()
-        }).catch((err) => {
-            console.log('Had issues adding review', err)
-            showErrorMsg('Could not add book review, try again please!')
-        })
+        // const id = utilService.makeId()
+        const bookReview = { name, rating, date }
+        saveReview(book, bookReview)
+       
     }
+
+    function getStarRating(){
+        const elStars = document.querySelector('input[name = star]:checked')
+        return elStars ? +elStars.value : 0
+    }
+
+    
 
 
     return (
         <section>
             <h2>Enter Review!</h2>
-            <form onSubmit={onReviewBook}>
+            <form onSubmit={onAddReview} className="add-book-form">
                 <div>
                     <label htmlFor="fullname">Full name : </label>
                     <input type="text"
@@ -41,20 +39,9 @@ export function AddReview({ bookId, loadBook }) {
                         placeholder="Enter fullname..."
                     />
                 </div>
-                {/* {<div className="stars">
-                    <input id="star-5" type="radio" name="star" />
-                    <label htmlFor="star-5"></label>
-                    <input id="star-4" type="radio" name="star" />
-                    <label htmlFor="star-4"></label>
-                    <input id="star-3" type="radio" name="star" />
-                    <label htmlFor="star-3"></label>
-                    <input id="star-2" type="radio" name="star" />
-                    <label htmlFor="star-2"></label>
-                    <input id="star-1" type="radio" name="star" />
-                    <label htmlFor="star-1"></label>
-                </div>} */}
-                {/* <StarRating /> */}
-                <div>
+             
+                <StarRating getStarRating={getStarRating}/>
+                {/* <div>
                     <label htmlFor="rating">Rating : </label>
                     <input type="range"
                         name="rating"
@@ -62,7 +49,7 @@ export function AddReview({ bookId, loadBook }) {
                         min="1"
                         max="5"
                     />
-                </div>
+                </div> */}
                 <div>
                     <label htmlFor="readAt">Read at : </label>
                     <input type="date"

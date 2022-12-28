@@ -22,10 +22,6 @@ export function BookFilter({ onSetFilter }) {
         })
     }
 
-    // function setSaleFilter({target}){
-    //     console.log('ev:',ev)
-    // }
-
 
     return <section className="book-filter full main-layout">
         <h2>Filter our books</h2>

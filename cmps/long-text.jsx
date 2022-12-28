@@ -1,28 +1,15 @@
 const { useState, useEffect } = React
 
 export function LongTxt({ text }) {
-    const [isLong, setIsLong] = useState(false)
-    // let isLong = false
-
-    useEffect(() => {
-        setTextStatus(text)
-        console.log('isLong:', isLong)
-    }, [])
+    const [isHidden, setIsHidden] = useState(true)
 
     useEffect(() => {
         getTextToShow(text)
-        console.log('isLong:', isLong)
-    }, [isLong])
+    }, [isHidden])
 
-    function setTextStatus(text, length = 100) {
-        if (text.length > length) setIsLong(true)
-    }
 
     function getTextToShow(text) {
-        if (isLong) {
-            // isLong = true
-            return text.substr(0, 100)
-        }
+        if (isHidden) return text.substr(0, 100)
         else return text
     }
 
@@ -31,13 +18,10 @@ export function LongTxt({ text }) {
     }
 
 
-
-
-
     return (
         <p>{getTextToShow(text)} 
-            {isTextLong(text) && <a className="green" onClick={() => setIsLong(!isLong)} >
-                {isLong ? ' Continue Reading...' : ' Show less...'}</a>}
+            {isTextLong(text) && <a className="green" onClick={() => setIsHidden(!isHidden)} >
+                {isHidden ? ' Continue Reading...' : ' Show less...'}</a>}
         </p>
     )
 }

@@ -3,7 +3,6 @@ const { Link } = ReactRouterDOM
 import { BookPreview } from "./book-preview.jsx";
 
 export function BookList({books, onRemoveBook}) {
-    console.log('books:',books)
     return (
         <section>
             <ul className="book-list">

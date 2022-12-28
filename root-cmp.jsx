@@ -36,11 +36,4 @@ export function App() {
 
     </Router>
 
-    return <section className="app">
-        <main>
-            {page === 'home' && <Home />}
-            {page === 'about' && <About />}
-            {page === 'book' && <BookIndex />}
-        </main>
-    </section>
 }
